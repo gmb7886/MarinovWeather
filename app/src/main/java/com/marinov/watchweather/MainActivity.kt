@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.ScrollView
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.lifecycleScope
@@ -167,6 +168,7 @@ class MainActivity : AppCompatActivity() {
 
         initializeViews()
         setupSelectionListeners()
+        setupBackButtonHandler() // Listener do botão "voltar" configurado
 
         val lastUrl = sharedPreferences.getString(KEY_LAST_CITY_URL, null)
         val lastDataSourceName = sharedPreferences.getString(KEY_LAST_DATA_SOURCE, null)
@@ -221,6 +223,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupBackButtonHandler() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Procura por qualquer layout de seleção de cidade que esteja visível
+                val visibleCityLayout = citySelectionLayouts.firstOrNull { it.visibility == View.VISIBLE }
+
+                if (visibleCityLayout != null) {
+                    // Se encontrou um, estamos na tela de cidades.
+                    // Esconde a lista de cidades e mostra a de países.
+                    visibleCityLayout.visibility = View.GONE
+                    countrySelectionLayout.visibility = View.VISIBLE
+                } else {
+                    // Caso contrário (estamos na tela de países ou na previsão),
+                    // executa a ação padrão (fechar o app).
+                    finish()
+                }
+            }
+        })
+    }
+
+
     private fun fetchAndDisplayWeatherData(url: String, dataSource: DataSource) {
         lifecycleScope.launch {
             updateViewState(ViewState.LOADING)
@@ -262,34 +285,48 @@ class MainActivity : AppCompatActivity() {
     private suspend fun scrapeWeatherComData(url: String): WeatherData? = withContext(Dispatchers.IO) {
         try {
             val doc = Jsoup.connect(url).get()
-            val currentConditions = doc.selectFirst("section[class*=CurrentConditions--card]")
-            val todayDetails = doc.selectFirst("div[class*=TodayDetailsCard--detailsContainer]")
 
-            val city = currentConditions?.selectFirst("h1.CurrentConditions--location--yub4l")?.text() ?: "N/A"
-            val temperature = currentConditions?.selectFirst("span[data-testid=TemperatureValue]")?.text() ?: "N/A"
-            val sensationRaw = todayDetails?.selectFirst("div[data-testid=FeelsLikeSection] span[data-testid=TemperatureValue]")?.text() ?: "N/A"
+            // --- Bloco de extração principal ---
+            val city = doc.selectFirst("h1[class*=CurrentConditions--location]")?.text() ?: "N/A"
+            val temperature = doc.selectFirst("div[class*=CurrentConditions--primary] span[data-testid=TemperatureValue]")?.text() ?: "N/A"
 
-            // Helper para encontrar detalhes pelo texto do rótulo
-            fun getDetailByLabel(label: String): String {
-                val parent = todayDetails?.select("div.WeatherDetailsListItem--label--U-Wrx:contains($label)")?.firstOrNull()?.parent()
-                return parent?.select("[data-testid=wxData]")?.text() ?: "N/A"
+            // --- Bloco de detalhes ---
+            val todayDetails = doc.selectFirst("section[data-testid=TodaysDetailsModule]")
+            val sensation = todayDetails?.selectFirst("div[data-testid=FeelsLikeSection] span[data-testid=TemperatureValue]")?.text() ?: "N/A"
+
+            // --- Inicializa variáveis para os detalhes ---
+            var wind = "N/A"
+            var humidity = "N/A"
+            var pressure = "N/A"
+
+            // --- Labels para busca (devem corresponder ao texto no site) ---
+            val windLabel = getString(R.string.wind_label_for_scraping) // Ex: "Vento"
+            val humidityLabel = getString(R.string.humidity_label_for_scraping) // Ex: "Umidade"
+            val pressureLabel = getString(R.string.pressure_label_for_scraping) // Ex: "Pressão"
+
+            // Itera sobre todos os itens de detalhes para encontrar os corretos
+            todayDetails?.select("div[data-testid=WeatherDetailsListItem]")?.forEach { item ->
+                val labelElement = item.selectFirst("div[data-testid=WeatherDetailsLabel]")
+                val valueElement = item.selectFirst("div[data-testid=wxData]")
+
+                if (labelElement != null && valueElement != null) {
+                    when (labelElement.text()) {
+                        windLabel -> wind = valueElement.text()
+                        humidityLabel -> humidity = valueElement.text()
+                        pressureLabel -> pressure = valueElement.text()
+                    }
+                }
             }
 
-            val windLabel = getString(R.string.wind_label_for_scraping)
-            val humidityLabel = getString(R.string.humidity_label_for_scraping)
-            val pressureLabel = getString(R.string.pressure_label_for_scraping)
+            val airQuality = "--" // Não disponível nesta fonte
 
-            val windRaw = getDetailByLabel(windLabel)
-            val humidityRaw = getDetailByLabel(humidityLabel)
-            val pressureRaw = getDetailByLabel(pressureLabel)
-            val airQualityRaw = "--" // Não disponível nesta fonte
-
-            WeatherData(city, temperature, sensationRaw, windRaw, humidityRaw, pressureRaw, airQualityRaw)
+            WeatherData(city, temperature, sensation, wind, humidity, pressure, airQuality)
         } catch (e: Exception) { // Captura exceções mais genéricas também
             e.printStackTrace()
             null
         }
     }
+
 
     private fun updateUI(data: WeatherData) {
         tvCity.text = data.city
@@ -308,4 +345,3 @@ class MainActivity : AppCompatActivity() {
         tvError.visibility = if (state == ViewState.ERROR) View.VISIBLE else View.GONE
     }
 }
-
