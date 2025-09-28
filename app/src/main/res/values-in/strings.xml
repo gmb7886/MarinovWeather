@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cuaca</string>
+    <string name="choose_country">Pilih negara</string>
+    <string name="city">Pilih kota terdekat</string>
+    <string name="error">Terjadi kesalahan</string>
+
+    <string name="sensation_format">Terasa seperti: %1$s</string>
+    <string name="wind_format">Angin: %1$s</string>
+    <string name="humidity_format">Kelembapan: %1$s</string>
+    <string name="pressure_format">Tekanan: %1$s</string>
+    <string name="air_quality_format">Kualitas Udara: %1$s</string>
+
+    <string name="wind_label_for_scraping">Angin</string>
+    <string name="humidity_label_for_scraping">Kelembapan</string>
+    <string name="pressure_label_for_scraping">Tekanan</string>
+
+    <!-- Negara -->
+    <string name="country_brazil">Brasil</string>
+    <string name="country_china">Cina</string>
+    <string name="country_india">India</string>
+    <string name="country_russia">Rusia</string>
+    <string name="country_ukraine">Ukraina</string>
+    <string name="country_qatar">Qatar</string>
+    <string name="country_germany">Jerman</string>
+    <string name="country_france">Prancis</string>
+    <string name="country_portugal">Portugal</string>
+    <string name="country_italy">Italia</string>
+    <string name="country_belgium">Belgia</string>
+    <string name="country_netherlands">Belanda</string>
+    <string name="country_south_korea">Korea Selatan</string>
+    <string name="country_north_korea">Korea Utara</string>
+    <string name="country_spain">Spanyol</string>
+    <string name="country_cuba">Kuba</string>
+    <string name="country_chile">Chili</string>
+    <string name="country_mexico">Meksiko</string>
+    <string name="country_venezuela">Venezuela</string>
+    <string name="country_bolivia">Bolivia</string>
+    <string name="country_paraguay">Paraguay</string>
+    <string name="country_uruguay">Uruguay</string>
+    <string name="country_argentina">Argentina</string>
+    <string name="country_poland">Polandia</string>
+    <string name="country_japan">Jepang</string>
+    <string name="country_uae">Uni Emirat Arab</string>
+    <string name="country_iran">Iran</string>
+    <string name="country_turkey">Turki</string>
+    <string name="country_israel">Israel</string>
+</resources>

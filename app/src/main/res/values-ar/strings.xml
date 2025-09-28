@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">الطقس</string>
+    <string name="choose_country">اختر الدولة</string>
+    <string name="city">اختر أقرب مدينة</string>
+    <string name="error">حدث خطأ</string>
+
+    <string name="sensation_format">الإحساس: %1$s</string>
+    <string name="wind_format">الرياح: %1$s</string>
+    <string name="humidity_format">الرطوبة: %1$s</string>
+    <string name="pressure_format">الضغط: %1$s</string>
+    <string name="air_quality_format">جودة الهواء: %1$s</string>
+
+    <string name="wind_label_for_scraping">الرياح</string>
+    <string name="humidity_label_for_scraping">الرطوبة</string>
+    <string name="pressure_label_for_scraping">الضغط</string>
+
+    <!-- الدول -->
+    <string name="country_brazil">البرازيل</string>
+    <string name="country_china">الصين</string>
+    <string name="country_india">الهند</string>
+    <string name="country_russia">روسيا</string>
+    <string name="country_ukraine">أوكرانيا</string>
+    <string name="country_qatar">قطر</string>
+    <string name="country_germany">ألمانيا</string>
+    <string name="country_france">فرنسا</string>
+    <string name="country_portugal">البرتغال</string>
+    <string name="country_italy">إيطاليا</string>
+    <string name="country_belgium">بلجيكا</string>
+    <string name="country_netherlands">هولندا</string>
+    <string name="country_south_korea">كوريا الجنوبية</string>
+    <string name="country_north_korea">كوريا الشمالية</string>
+    <string name="country_spain">إسبانيا</string>
+    <string name="country_cuba">كوبا</string>
+    <string name="country_chile">تشيلي</string>
+    <string name="country_mexico">المكسيك</string>
+    <string name="country_venezuela">فنزويلا</string>
+    <string name="country_bolivia">بوليفيا</string>
+    <string name="country_paraguay">باراغواي</string>
+    <string name="country_uruguay">أوروغواي</string>
+    <string name="country_argentina">الأرجنتين</string>
+    <string name="country_poland">بولندا</string>
+    <string name="country_japan">اليابان</string>
+    <string name="country_uae">الإمارات العربية المتحدة</string>
+    <string name="country_iran">إيران</string>
+    <string name="country_turkey">تركيا</string>
+    <string name="country_israel">إسرائيل</string>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Clima</string>
+    <string name="choose_country">Selecione o país:</string>
+    <string name="city">Selecione a cidade mais próxima:</string>
+    <string name="error">Ocorreu um erro.</string>
+
+    <string name="sensation_format">Sensação: %1$s</string>
+    <string name="wind_format">Vento: %1$s</string>
+    <string name="humidity_format">Umidade: %1$s</string>
+    <string name="pressure_format">Pressão: %1$s</string>
+    <string name="air_quality_format">Qualidade do ar: %1$s</string>
+
+    <string name="wind_label_for_scraping">Vento</string>
+    <string name="humidity_label_for_scraping">Umidade</string>
+    <string name="pressure_label_for_scraping">Pressão</string>
+
+    <!-- Países -->
+    <string name="country_brazil">Brasil</string>
+    <string name="country_china">China</string>
+    <string name="country_india">Índia</string>
+    <string name="country_russia">Rússia</string>
+    <string name="country_ukraine">Ucrânia</string>
+    <string name="country_qatar">Catar</string>
+    <string name="country_germany">Alemanha</string>
+    <string name="country_france">França</string>
+    <string name="country_portugal">Portugal</string>
+    <string name="country_italy">Itália</string>
+    <string name="country_belgium">Bélgica</string>
+    <string name="country_netherlands">Países Baixos</string>
+    <string name="country_south_korea">Coreia do Sul</string>
+    <string name="country_north_korea">Coreia do Norte</string>
+    <string name="country_spain">Espanha</string>
+    <string name="country_cuba">Cuba</string>
+    <string name="country_chile">Chile</string>
+    <string name="country_mexico">México</string>
+    <string name="country_venezuela">Venezuela</string>
+    <string name="country_bolivia">Bolívia</string>
+    <string name="country_paraguay">Paraguai</string>
+    <string name="country_uruguay">Uruguai</string>
+    <string name="country_argentina">Argentina</string>
+    <string name="country_poland">Polônia</string>
+    <string name="country_japan">Japão</string>
+    <string name="country_uae">Emirados Árabes Unidos</string>
+    <string name="country_iran">Irã</string>
+    <string name="country_turkey">Turquia</string>
+    <string name="country_israel">Israel</string>
+
+    <!-- Cidades -->
+    <string name="city_taipei">Taipé, Taiwan</string>
+    <string name="city_hong_kong">Hong Kong, China</string>
+    <string name="city_shenzhen">Shenzhen, China</string>
+    <string name="city_pequim">Pequim, China</string>
+    <string name="city_nova_deli">Nova Deli, Deli, Índia</string>
+    <string name="city_sao_petersburgo">São Petersburgo, Rússia</string>
+    <string name="city_kiev">Kiev, Ucrânia</string>
+    <string name="city_doha">Doha, Catar</string>
+    <string name="city_berlim">Berlim, Alemanha</string>
+    <string name="city_frankfurt">Frankfurt, Hesse, Alemanha</string>
+    <string name="city_paris">Paris, Ilha de França, França</string>
+    <string name="city_lisboa">Lisboa, Lisboa, Portugal</string>
+    <string name="city_porto">Porto, Porto, Portugal</string>
+    <string name="city_roma">Roma, Cidade Metropolitana de Roma Capital, Itália</string>
+    <string name="city_bruxelas">Bruxelas, Região de Bruxelas-Capital, Bélgica</string>
+    <string name="city_amsterdam">Amsterdam-Centrum, Holanda do Norte, Países Baixos</string>
+    <string name="city_seul">Seul, Coreia do Sul</string>
+    <string name="city_pyongyang">Pyongyang, Pyongyang, Coreia do Norte</string>
+    <string name="city_madri">Madri, Madrid, Espanha</string>
+    <string name="city_havana">Cidade de Havana, Cuba</string>
+    <string name="city_santiago">Santiago, Região Metropolitana de Santiago, Chile</string>
+    <string name="city_cidade_do_mexico">Cidade do México, México</string>
+    <string name="city_caracas">Caracas, Distrito Capital, Venezuela</string>
+    <string name="city_sucre">Sucre, Chuquisaca, Bolívia</string>
+    <string name="city_assuncao">Assunção, Paraguai</string>
+    <string name="city_montevideu">Montevidéu, Departamento de Montevidéu, Uruguai</string>
+    <string name="city_buenos_aires">Buenos Aires, Argentina</string>
+    <string name="city_varsovia">Varsóvia, Voivodia da Mazóvia, Polônia</string>
+    <string name="city_toquio">Tóquio, Tóquio, Japão</string>
+    <string name="city_koto">Koto, Tóquio, Japão</string>
+    <string name="city_abu_dhabi">Abu Dhabi, Emirado Abu Dhabi, Emirados Árabes Unidos</string>
+    <string name="city_teera">Teerã, Teerã, Irã</string>
+    <string name="city_cankaya">Çankaya, Ancara, Turquia</string>
+    <string name="city_jerusalem">Jerusalém, Jerusalém</string>
+</resources>
+

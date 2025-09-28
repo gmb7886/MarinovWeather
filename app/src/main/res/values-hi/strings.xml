@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">मौसम</string>
+    <string name="choose_country">देश चुनें</string>
+    <string name="city">निकटतम शहर चुनें</string>
+    <string name="error">एक त्रुटि हुई</string>
+
+    <string name="sensation_format">अनुभव: %1$s</string>
+    <string name="wind_format">हवा: %1$s</string>
+    <string name="humidity_format">नमी: %1$s</string>
+    <string name="pressure_format">दबाव: %1$s</string>
+    <string name="air_quality_format">वायु गुणवत्ता: %1$s</string>
+
+    <string name="wind_label_for_scraping">हवा</string>
+    <string name="humidity_label_for_scraping">नमी</string>
+    <string name="pressure_label_for_scraping">दबाव</string>
+
+    <!-- देश -->
+    <string name="country_brazil">ब्राज़िल</string>
+    <string name="country_china">चीन</string>
+    <string name="country_india">भारत</string>
+    <string name="country_russia">रूस</string>
+    <string name="country_ukraine">यूक्रेन</string>
+    <string name="country_qatar">कतर</string>
+    <string name="country_germany">जर्मनी</string>
+    <string name="country_france">फ्रांस</string>
+    <string name="country_portugal">पुर्तगाल</string>
+    <string name="country_italy">इटली</string>
+    <string name="country_belgium">बेल्जियम</string>
+    <string name="country_netherlands">नीदरलैंड</string>
+    <string name="country_south_korea">दक्षिण कोरिया</string>
+    <string name="country_north_korea">उत्तर कोरिया</string>
+    <string name="country_spain">स्पेन</string>
+    <string name="country_cuba">क्यूबा</string>
+    <string name="country_chile">चिली</string>
+    <string name="country_mexico">मेक्सिको</string>
+    <string name="country_venezuela">वेनेजुएला</string>
+    <string name="country_bolivia">बोलीविया</string>
+    <string name="country_paraguay">पैराग्वे</string>
+    <string name="country_uruguay">उरुग्वे</string>
+    <string name="country_argentina">अर्जेंटीना</string>
+    <string name="country_poland">पोलैंड</string>
+    <string name="country_japan">जापान</string>
+    <string name="country_uae">संयुक्त अरब अमीरात</string>
+    <string name="country_iran">ईरान</string>
+    <string name="country_turkey">तुर्की</string>
+    <string name="country_israel">इज़राइल</string>
+</resources>

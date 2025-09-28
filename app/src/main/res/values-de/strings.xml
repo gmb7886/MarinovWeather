@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wetter</string>
+    <string name="choose_country">Land auswählen</string>
+    <string name="city">Nächstgelegene Stadt auswählen</string>
+    <string name="error">Ein Fehler ist aufgetreten</string>
+
+    <string name="sensation_format">Gefühlt: %1$s</string>
+    <string name="wind_format">Wind: %1$s</string>
+    <string name="humidity_format">Luftfeuchtigkeit: %1$s</string>
+    <string name="pressure_format">Druck: %1$s</string>
+    <string name="air_quality_format">Luftqualität: %1$s</string>
+
+    <string name="wind_label_for_scraping">Wind</string>
+    <string name="humidity_label_for_scraping">Luftfeuchtigkeit</string>
+    <string name="pressure_label_for_scraping">Druck</string>
+
+    <!-- Länder -->
+    <string name="country_brazil">Brasilien</string>
+    <string name="country_china">China</string>
+    <string name="country_india">Indien</string>
+    <string name="country_russia">Russland</string>
+    <string name="country_ukraine">Ukraine</string>
+    <string name="country_qatar">Katar</string>
+    <string name="country_germany">Deutschland</string>
+    <string name="country_france">Frankreich</string>
+    <string name="country_portugal">Portugal</string>
+    <string name="country_italy">Italien</string>
+    <string name="country_belgium">Belgien</string>
+    <string name="country_netherlands">Niederlande</string>
+    <string name="country_south_korea">Südkorea</string>
+    <string name="country_north_korea">Nordkorea</string>
+    <string name="country_spain">Spanien</string>
+    <string name="country_cuba">Kuba</string>
+    <string name="country_chile">Chile</string>
+    <string name="country_mexico">Mexiko</string>
+    <string name="country_venezuela">Venezuela</string>
+    <string name="country_bolivia">Bolivien</string>
+    <string name="country_paraguay">Paraguay</string>
+    <string name="country_uruguay">Uruguay</string>
+    <string name="country_argentina">Argentinien</string>
+    <string name="country_poland">Polen</string>
+    <string name="country_japan">Japan</string>
+    <string name="country_uae">Vereinigte Arabische Emirate</string>
+    <string name="country_iran">Iran</string>
+    <string name="country_turkey">Türkei</string>
+    <string name="country_israel">Israel</string>
+</resources>

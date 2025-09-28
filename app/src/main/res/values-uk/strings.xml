@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Погода</string>
+    <string name="choose_country">Виберіть країну</string>
+    <string name="city">Виберіть найближче місто</string>
+    <string name="error">Сталася помилка</string>
+
+    <string name="sensation_format">Відчувається як: %1$s</string>
+    <string name="wind_format">Вітер: %1$s</string>
+    <string name="humidity_format">Вологість: %1$s</string>
+    <string name="pressure_format">Тиск: %1$s</string>
+    <string name="air_quality_format">Якість повітря: %1$s</string>
+
+    <string name="wind_label_for_scraping">Вітер</string>
+    <string name="humidity_label_for_scraping">Вологість</string>
+    <string name="pressure_label_for_scraping">Тиск</string>
+
+    <!-- Країни -->
+    <string name="country_brazil">Бразилія</string>
+    <string name="country_china">Китай</string>
+    <string name="country_india">Індія</string>
+    <string name="country_russia">Росія</string>
+    <string name="country_ukraine">Україна</string>
+    <string name="country_qatar">Катар</string>
+    <string name="country_germany">Німеччина</string>
+    <string name="country_france">Франція</string>
+    <string name="country_portugal">Португалія</string>
+    <string name="country_italy">Італія</string>
+    <string name="country_belgium">Бельгія</string>
+    <string name="country_netherlands">Нідерланди</string>
+    <string name="country_south_korea">Південна Корея</string>
+    <string name="country_north_korea">Північна Корея</string>
+    <string name="country_spain">Іспанія</string>
+    <string name="country_cuba">Куба</string>
+    <string name="country_chile">Чилі</string>
+    <string name="country_mexico">Мексика</string>
+    <string name="country_venezuela">Венесуела</string>
+    <string name="country_bolivia">Болівія</string>
+    <string name="country_paraguay">Парагвай</string>
+    <string name="country_uruguay">Уругвай</string>
+    <string name="country_argentina">Аргентина</string>
+    <string name="country_poland">Польща</string>
+    <string name="country_japan">Японія</string>
+    <string name="country_uae">Об\'єднані Арабські Емірати</string>
+    <string name="country_iran">Іран</string>
+    <string name="country_turkey">Туреччина</string>
+    <string name="country_israel">Ізраїль</string>
+</resources>

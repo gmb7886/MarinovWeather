@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">날씨</string>
+    <string name="choose_country">국가 선택</string>
+    <string name="city">가장 가까운 도시 선택</string>
+    <string name="error">오류가 발생했습니다</string>
+
+    <string name="sensation_format">체감 온도: %1$s</string>
+    <string name="wind_format">바람: %1$s</string>
+    <string name="humidity_format">습도: %1$s</string>
+    <string name="pressure_format">기압: %1$s</string>
+    <string name="air_quality_format">대기 질: %1$s</string>
+
+    <string name="wind_label_for_scraping">바람</string>
+    <string name="humidity_label_for_scraping">습도</string>
+    <string name="pressure_label_for_scraping">기압</string>
+
+    <!-- 국가 -->
+    <string name="country_brazil">브라질</string>
+    <string name="country_china">중국</string>
+    <string name="country_india">인도</string>
+    <string name="country_russia">러시아</string>
+    <string name="country_ukraine">우크라이나</string>
+    <string name="country_qatar">카타르</string>
+    <string name="country_germany">독일</string>
+    <string name="country_france">프랑스</string>
+    <string name="country_portugal">포르투갈</string>
+    <string name="country_italy">이탈리아</string>
+    <string name="country_belgium">벨기에</string>
+    <string name="country_netherlands">네덜란드</string>
+    <string name="country_south_korea">대한민국</string>
+    <string name="country_north_korea">북한</string>
+    <string name="country_spain">스페인</string>
+    <string name="country_cuba">쿠바</string>
+    <string name="country_chile">칠레</string>
+    <string name="country_mexico">멕시코</string>
+    <string name="country_venezuela">베네수엘라</string>
+    <string name="country_bolivia">볼리비아</string>
+    <string name="country_paraguay">파라과이</string>
+    <string name="country_uruguay">우루과이</string>
+    <string name="country_argentina">아르헨티나</string>
+    <string name="country_poland">폴란드</string>
+    <string name="country_japan">일본</string>
+    <string name="country_uae">아랍에미리트</string>
+    <string name="country_iran">이란</string>
+    <string name="country_turkey">터키</string>
+    <string name="country_israel">이스라엘</string>
+</resources>
