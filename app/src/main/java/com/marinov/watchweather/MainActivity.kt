@@ -225,6 +225,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBackButtonHandler() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            @SuppressLint("UseKtx")
             override fun handleOnBackPressed() {
                 // Procura por qualquer layout de seleção de cidade que esteja visível
                 val visibleCityLayout = citySelectionLayouts.firstOrNull { it.visibility == View.VISIBLE }
