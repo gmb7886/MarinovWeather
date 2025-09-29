@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -65,7 +66,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvHumidity: TextView
     private lateinit var tvPressure: TextView
     private lateinit var tvAirQuality: TextView
-    private lateinit var weatherContent: ConstraintLayout
+    private lateinit var weatherContent: LinearLayout
+    private lateinit var weatherScrollView: ScrollView
 
     // UI de Controle
     private lateinit var progressBar: ProgressBar
@@ -73,7 +75,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var selectionScreen: ScrollView
     private lateinit var countrySelectionLayout: LinearLayout
     private lateinit var citySelectionLayouts: List<LinearLayout>
-
 
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -191,6 +192,7 @@ class MainActivity : AppCompatActivity() {
         tvPressure = findViewById(R.id.tv_pressure)
         tvAirQuality = findViewById(R.id.tv_air_quality)
         weatherContent = findViewById(R.id.weather_content)
+        weatherScrollView = findViewById(R.id.weather_scroll) // Nova referência ao ScrollView
         progressBar = findViewById(R.id.progress_bar)
         tvError = findViewById(R.id.tv_error)
         selectionScreen = findViewById(R.id.selection_screen)
@@ -225,25 +227,26 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBackButtonHandler() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            @SuppressLint("UseKtx")
             override fun handleOnBackPressed() {
-                // Procura por qualquer layout de seleção de cidade que esteja visível
-                val visibleCityLayout = citySelectionLayouts.firstOrNull { it.visibility == View.VISIBLE }
+                // Procura por um layout de cidade visível, mas APENAS se a tela de seleção geral estiver ativa.
+                val visibleCityLayout = if (selectionScreen.isVisible) {
+                    citySelectionLayouts.firstOrNull { it.isVisible }
+                } else {
+                    null
+                }
 
                 if (visibleCityLayout != null) {
-                    // Se encontrou um, estamos na tela de cidades.
-                    // Esconde a lista de cidades e mostra a de países.
+                    // Caso 1: Estamos na tela de seleção de cidade. Voltamos para a de país.
                     visibleCityLayout.visibility = View.GONE
                     countrySelectionLayout.visibility = View.VISIBLE
                 } else {
-                    // Caso contrário (estamos na tela de países ou na previsão),
-                    // executa a ação padrão (fechar o app).
+                    // Caso 2: Estamos na tela de seleção de país OU na tela de previsão do tempo.
+                    // Em ambos os casos, a ação desejada é fechar o app.
                     finish()
                 }
             }
         })
     }
-
 
     private fun fetchAndDisplayWeatherData(url: String, dataSource: DataSource) {
         lifecycleScope.launch {
@@ -255,6 +258,10 @@ class MainActivity : AppCompatActivity() {
             if (weatherData != null) {
                 updateUI(weatherData)
                 updateViewState(ViewState.CONTENT)
+                // Garante que o scroll está no topo quando novos dados são carregados
+                weatherScrollView.post {
+                    weatherScrollView.scrollTo(0, 0)
+                }
             } else {
                 updateViewState(ViewState.ERROR)
             }
@@ -328,9 +335,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun updateUI(data: WeatherData) {
         tvCity.text = data.city
+        // Adiciona a propriedade isSelected para ativar o efeito de marquee
+        tvCity.isSelected = true
         tvTemperature.text = data.temperature
         tvSensation.text = getString(R.string.sensation_format, data.sensation)
         tvWind.text = getString(R.string.wind_format, data.wind)
@@ -342,7 +350,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateViewState(state: ViewState) {
         selectionScreen.visibility = if (state == ViewState.SELECTION) View.VISIBLE else View.GONE
         progressBar.visibility = if (state == ViewState.LOADING) View.VISIBLE else View.GONE
-        weatherContent.visibility = if (state == ViewState.CONTENT) View.VISIBLE else View.GONE
+        weatherScrollView.visibility = if (state == ViewState.CONTENT) View.VISIBLE else View.GONE // Atualizado para usar o ScrollView
         tvError.visibility = if (state == ViewState.ERROR) View.VISIBLE else View.GONE
     }
 }
