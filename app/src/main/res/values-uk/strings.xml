@@ -10,7 +10,9 @@
     <string name="humidity_format">Вологість: %1$s</string>
     <string name="pressure_format">Тиск: %1$s</string>
     <string name="air_quality_format">Якість повітря: %1$s</string>
-
+    <string name="dialog_change_location_message">Ви хочете обрати інше місце?</string>
+    <string name="dialog_confirm">так</string>
+    <string name="dialog_deny">немає</string>
     <string name="wind_label_for_scraping">Вітер</string>
     <string name="humidity_label_for_scraping">Вологість</string>
     <string name="pressure_label_for_scraping">Тиск</string>

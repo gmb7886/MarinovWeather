@@ -11,6 +11,10 @@
     <string name="pressure_format">기압: %1$s</string>
     <string name="air_quality_format">대기 질: %1$s</string>
 
+    <string name="dialog_change_location_message">다른 위치를 선택하시겠습니까?</string>
+    <string name="dialog_confirm">예</string>
+    <string name="dialog_deny">아니요</string>
+
     <string name="wind_label_for_scraping">바람</string>
     <string name="humidity_label_for_scraping">습도</string>
     <string name="pressure_label_for_scraping">기압</string>

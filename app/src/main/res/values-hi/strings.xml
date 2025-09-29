@@ -10,7 +10,9 @@
     <string name="humidity_format">नमी: %1$s</string>
     <string name="pressure_format">दबाव: %1$s</string>
     <string name="air_quality_format">वायु गुणवत्ता: %1$s</string>
-
+    <string name="dialog_change_location_message">क्या आप कोई अन्य स्थान चुनना चाहते हैं?</string>
+    <string name="dialog_confirm">हाँ</string>
+    <string name="dialog_deny">नहीं</string>
     <string name="wind_label_for_scraping">हवा</string>
     <string name="humidity_label_for_scraping">नमी</string>
     <string name="pressure_label_for_scraping">दबाव</string>

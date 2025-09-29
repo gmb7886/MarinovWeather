@@ -10,7 +10,9 @@
     <string name="humidity_format">湿度: %1$s</string>
     <string name="pressure_format">気圧: %1$s</string>
     <string name="air_quality_format">空気質: %1$s</string>
-
+    <string name="dialog_change_location_message">別の場所を選択しますか?</string>
+    <string name="dialog_confirm">はい</string>
+    <string name="dialog_deny">いいえ</string>
     <string name="wind_label_for_scraping">風</string>
     <string name="humidity_label_for_scraping">湿度</string>
     <string name="pressure_label_for_scraping">気圧</string>

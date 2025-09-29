@@ -10,7 +10,9 @@
     <string name="humidity_format">Umidità: %1$s</string>
     <string name="pressure_format">Pressione: %1$s</string>
     <string name="air_quality_format">Qualità dell\'aria: %1$s</string>
-
+    <string name="dialog_change_location_message">Vuoi scegliere un\'altra posizione?</string>
+    <string name="dialog_confirm">Sì</string>
+    <string name="dialog_deny">No</string>
     <string name="wind_label_for_scraping">Vento</string>
     <string name="humidity_label_for_scraping">Umidità</string>
     <string name="pressure_label_for_scraping">Pressione</string>

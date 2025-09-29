@@ -10,7 +10,9 @@
     <string name="humidity_format">Влажность: %1$s</string>
     <string name="pressure_format">Давление: %1$s</string>
     <string name="air_quality_format">Качество воздуха: %1$s</string>
-
+    <string name="dialog_change_location_message">Хотите выбрать другое место?</string>
+    <string name="dialog_confirm">да</string>
+    <string name="dialog_deny">нет</string>
     <string name="wind_label_for_scraping">Ветер</string>
     <string name="humidity_label_for_scraping">Влажность</string>
     <string name="pressure_label_for_scraping">Давление</string>

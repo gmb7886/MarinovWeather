@@ -1,17 +1,23 @@
 package com.marinov.watchweather
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.Gravity
+import android.view.MotionEvent
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
@@ -49,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         private const val SHARED_PREFS_NAME = "WeatherAppPrefs"
         private const val KEY_LAST_CITY_URL = "last_city_url"
         private const val KEY_LAST_DATA_SOURCE = "last_data_source"
+        private const val LONG_PRESS_DURATION = 5000L // 5 segundos
     }
 
     private enum class ViewState {
@@ -77,6 +84,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var citySelectionLayouts: List<LinearLayout>
 
     private lateinit var sharedPreferences: SharedPreferences
+
+    // Variáveis para o long press
+    private val longPressHandler = Handler(Looper.getMainLooper())
+    private var longPressRunnable: Runnable? = null
+    private var isLongPressActive = false
 
     // Estrutura de dados para cidades e fontes
     private val cities = mapOf(
@@ -169,7 +181,8 @@ class MainActivity : AppCompatActivity() {
 
         initializeViews()
         setupSelectionListeners()
-        setupBackButtonHandler() // Listener do botão "voltar" configurado
+        setupBackButtonHandler()
+        setupLongPressHandler()
 
         val lastUrl = sharedPreferences.getString(KEY_LAST_CITY_URL, null)
         val lastDataSourceName = sharedPreferences.getString(KEY_LAST_DATA_SOURCE, null)
@@ -192,7 +205,7 @@ class MainActivity : AppCompatActivity() {
         tvPressure = findViewById(R.id.tv_pressure)
         tvAirQuality = findViewById(R.id.tv_air_quality)
         weatherContent = findViewById(R.id.weather_content)
-        weatherScrollView = findViewById(R.id.weather_scroll) // Nova referência ao ScrollView
+        weatherScrollView = findViewById(R.id.weather_scroll)
         progressBar = findViewById(R.id.progress_bar)
         tvError = findViewById(R.id.tv_error)
         selectionScreen = findViewById(R.id.selection_screen)
@@ -200,6 +213,77 @@ class MainActivity : AppCompatActivity() {
 
         // Inicializa a lista de layouts de cidades
         citySelectionLayouts = countryToCityLayoutMap.values.toList()
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setupLongPressHandler() {
+        weatherScrollView.setOnTouchListener { _, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    if (weatherScrollView.isVisible) {
+                        isLongPressActive = false
+                        longPressRunnable = Runnable {
+                            isLongPressActive = true
+                            showLocationChangeDialog()
+                        }
+                        longPressHandler.postDelayed(longPressRunnable!!, LONG_PRESS_DURATION)
+                    }
+                    false // Não consome o evento para permitir scroll
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    longPressRunnable?.let { longPressHandler.removeCallbacks(it) }
+                    false // Não consome o evento
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun showLocationChangeDialog() {
+        val dialog = AlertDialog.Builder(this)
+            .setMessage(getString(R.string.dialog_change_location_message))
+            .setPositiveButton(getString(R.string.dialog_confirm)) { _, _ ->
+                clearSavedLocationAndRestart()
+            }
+            .setNegativeButton(getString(R.string.dialog_deny)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setCancelable(true)
+            .create()
+
+        // Configurações para garantir centralização em todos os dispositivos
+        dialog.show()
+
+        val window = dialog.window
+        window?.let {
+            // Define layout parameters para centralizar
+            val layoutParams = WindowManager.LayoutParams().apply {
+                copyFrom(it.attributes)
+                gravity = Gravity.CENTER
+                width = WindowManager.LayoutParams.WRAP_CONTENT
+                height = WindowManager.LayoutParams.WRAP_CONTENT
+            }
+            it.attributes = layoutParams
+
+            // Força a janela a se posicionar no centro da tela
+            it.setGravity(Gravity.CENTER)
+        }
+    }
+
+    @SuppressLint("ApplySharedPref", "UseKtx")
+    private fun clearSavedLocationAndRestart() {
+        // Remove os dados salvos
+        with(sharedPreferences.edit()) {
+            remove(KEY_LAST_CITY_URL)
+            remove(KEY_LAST_DATA_SOURCE)
+            commit()
+        }
+
+        // Reinicia a Activity
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 
     @SuppressLint("ApplySharedPref", "UseKtx")
@@ -218,7 +302,7 @@ class MainActivity : AppCompatActivity() {
                 with(sharedPreferences.edit()) {
                     putString(KEY_LAST_CITY_URL, city.url)
                     putString(KEY_LAST_DATA_SOURCE, city.dataSource.name)
-                    commit() // Usar commit para garantir gravação imediata
+                    commit()
                 }
                 fetchAndDisplayWeatherData(city.url, city.dataSource)
             }
@@ -350,7 +434,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateViewState(state: ViewState) {
         selectionScreen.visibility = if (state == ViewState.SELECTION) View.VISIBLE else View.GONE
         progressBar.visibility = if (state == ViewState.LOADING) View.VISIBLE else View.GONE
-        weatherScrollView.visibility = if (state == ViewState.CONTENT) View.VISIBLE else View.GONE // Atualizado para usar o ScrollView
+        weatherScrollView.visibility = if (state == ViewState.CONTENT) View.VISIBLE else View.GONE
         tvError.visibility = if (state == ViewState.ERROR) View.VISIBLE else View.GONE
     }
 }

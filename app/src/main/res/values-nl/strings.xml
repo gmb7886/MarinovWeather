@@ -10,7 +10,9 @@
     <string name="humidity_format">Luchtvochtigheid: %1$s</string>
     <string name="pressure_format">Druk: %1$s</string>
     <string name="air_quality_format">Luchtkwaliteit: %1$s</string>
-
+    <string name="dialog_change_location_message">Wilt u een andere locatie kiezen?</string>
+    <string name="dialog_confirm">Ja</string>
+    <string name="dialog_deny">Nee</string>
     <string name="wind_label_for_scraping">Wind</string>
     <string name="humidity_label_for_scraping">Luchtvochtigheid</string>
     <string name="pressure_label_for_scraping">Druk</string>

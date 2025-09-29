@@ -10,7 +10,9 @@
     <string name="humidity_format">Kelembapan: %1$s</string>
     <string name="pressure_format">Tekanan: %1$s</string>
     <string name="air_quality_format">Kualitas Udara: %1$s</string>
-
+    <string name="dialog_change_location_message">Apakah Anda ingin memilih lokasi lain?</string>
+    <string name="dialog_confirm">Ya</string>
+    <string name="dialog_deny">Tidak</string>
     <string name="wind_label_for_scraping">Angin</string>
     <string name="humidity_label_for_scraping">Kelembapan</string>
     <string name="pressure_label_for_scraping">Tekanan</string>

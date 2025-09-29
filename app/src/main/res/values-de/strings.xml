@@ -10,7 +10,9 @@
     <string name="humidity_format">Luftfeuchtigkeit: %1$s</string>
     <string name="pressure_format">Druck: %1$s</string>
     <string name="air_quality_format">Luftqualität: %1$s</string>
-
+    <string name="dialog_change_location_message">Möchten Sie einen anderen Standort auswählen?</string>
+    <string name="dialog_confirm">Ja</string>
+    <string name="dialog_deny">Nein</string>
     <string name="wind_label_for_scraping">Wind</string>
     <string name="humidity_label_for_scraping">Luftfeuchtigkeit</string>
     <string name="pressure_label_for_scraping">Druck</string>

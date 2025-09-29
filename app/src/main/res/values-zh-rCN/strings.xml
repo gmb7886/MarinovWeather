@@ -10,7 +10,9 @@
     <string name="humidity_format">湿度: %1$s</string>
     <string name="pressure_format">气压: %1$s</string>
     <string name="air_quality_format">空气质量: %1$s</string>
-
+    <string name="dialog_change_location_message">您想选择其他位置吗？</string>
+    <string name="dialog_confirm">是的</string>
+    <string name="dialog_deny">不</string>
     <string name="wind_label_for_scraping">风</string>
     <string name="humidity_label_for_scraping">湿度</string>
     <string name="pressure_label_for_scraping">气压</string>
